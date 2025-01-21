@@ -28,6 +28,44 @@ This project focuses on building an **ETL (Extract, Transform, Load)** pipeline 
 
 ---
 
+## **Work Allocation**
+
+### **Person A**
+1. Create the **Category and Subcategory DataFrames**:
+   - Extract data from `crowdfunding.xlsx`.
+   - Create `category.csv` and `subcategory.csv`.
+   - Ensure proper data formatting and validation.
+
+2. **Database Integration**:
+   - Create the database schema.
+   - Define relationships, primary keys, and foreign keys.
+
+---
+
+### **Person B**
+1. Create the **Campaign DataFrame**:
+   - Extract and transform campaign-related data.
+   - Format columns and ensure data consistency.
+   - Export as `campaign.csv`.
+
+2. **PostgreSQL Import**:
+   - Load `campaign.csv` and verify table data.
+   - Perform SQL queries to test data accuracy.
+
+---
+
+### **Person C**
+1. Create the **Contacts DataFrame**:
+   - Extract and transform data from `contacts.xlsx`.
+   - Use dictionary methods or regular expressions for data extraction.
+   - Export as `contacts.csv`.
+
+2. **Database Testing**:
+   - Import `contacts.csv` into the database.
+   - Validate data using SQL queries and debug any issues.
+
+---
+
 ## **Deliverables**
 
 ### **1. Extract and Transform Data**
@@ -118,9 +156,9 @@ This project focuses on building an **ETL (Extract, Transform, Load)** pipeline 
 | Date       | Milestone                                   |
 |------------|--------------------------------------------|
 | Jan 23     | Project Kickoff                            |
-| Jan 24     | Category and Subcategory DataFrames        |
-| Jan 25     | Campaign DataFrame                         |
-| Jan 26     | Contacts DataFrame                         |
-| Jan 27     | Database Schema and Integration            |
-| Jan 28     | Testing and Debugging                      |
-| Jan 29     | Final Documentation and Submission         |
+| Jan 24     | Person A: Category and Subcategory DataFrames |
+| Jan 25     | Person B: Campaign DataFrame               |
+| Jan 26     | Person C: Contacts DataFrame               |
+| Jan 27     | Person A: Database Schema and Integration  |
+| Jan 28     | Testing and Debugging (All Members)        |
+| Jan 29     | Final Documentation and Submission (All Members) |
