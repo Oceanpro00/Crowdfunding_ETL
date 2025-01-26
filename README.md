@@ -91,7 +91,7 @@ This project focuses on building an **ETL (Extract, Transform, Load)** pipeline 
   - `end_date` (datetime)
   - `category_id` (matches `category.csv`)
   - `subcategory_id` (matches `subcategory.csv`)
-- Exported as **`campaign.csv`**.
+- Exported as **`campaign.csv`**
 
 #### **Contacts DataFrame**
 - Columns:
@@ -194,8 +194,18 @@ Crowdfunding_ETL/
    ```bash
    psql -U username -d crowdfunding_db -f crowdfunding_db_schema.sql
    ```
-3. Import CSV data into the database.
-4. Verify table contents with SQL queries.
+3. Import CSV data into the database in the following order with the specified settings:
+   - **Order**: `category.csv`, `subcategory.csv`, `contacts.csv`, `campaign.csv`
+   - **Settings**: Delimiter = `,`, Header = `True`
+4. Verify table contents with SQL queries. You can use one or more of the following approaches:
+   - **Option 1**: Run `SELECT * FROM table_name;` for each table to view all records.
+   - **Option 2**: Use `SELECT COUNT(*) FROM table_name;` to confirm the number of rows imported matches expectations.
+   - **Option 3**: Execute specific queries to validate data integrity, such as checking relationships between tables:
+     ```sql
+     SELECT c.category, s.subcategory
+     FROM category c
+     JOIN subcategory s ON c.category_id = s.category_id;
+     ```
 
 ---
 
