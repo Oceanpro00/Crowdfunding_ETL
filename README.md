@@ -202,7 +202,7 @@ Crowdfunding_ETL/
    - **Option 2**: Use `SELECT COUNT(*) FROM table_name;` to confirm the number of rows imported matches expectations.
    - **Option 3**: -- Option 3: Validate data integrity by checking relationships between tables
      ```sql
-     SELECT c.category_name, sc.subcategory_name
+     SELECT c.category, sc.subcategory
      FROM category c
      JOIN campaign ca ON c.category_id = ca.category_id
      JOIN subcategory sc ON ca.subcategory_id = sc.subcategory_id;
