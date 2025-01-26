@@ -91,7 +91,7 @@ This project focuses on building an **ETL (Extract, Transform, Load)** pipeline 
   - `end_date` (datetime)
   - `category_id` (matches `category.csv`)
   - `subcategory_id` (matches `subcategory.csv`)
-- Exported as **`campaign.csv`**.
+- Exported as **`campaign.csv`**
 
 #### **Contacts DataFrame**
 - Columns:
