@@ -70,6 +70,7 @@ CREATE TABLE campaign (
 -- SELECT COUNT(*) FROM contacts;
 
 -- Option 3: Validate data integrity by checking relationships between tables
--- SELECT c.category_name, s.subcategory_name
--- FROM category c
--- JOIN subcategory s ON c.category_id = s.category_id;
+-- SELECT c.category, sc.subcategory
+-- FROM category as c
+-- JOIN campaign as ca ON c.category_id = ca.category_id
+-- JOIN subcategory as sc ON ca.subcategory_id = sc.subcategory_id;
