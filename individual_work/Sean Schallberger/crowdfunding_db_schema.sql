@@ -54,4 +54,22 @@ CREATE TABLE campaign (
     FOREIGN KEY (subcategory_id) REFERENCES subcategory(subcategory_id)
 );
 
+-- The following queries can be run after creating the tables and importing data:
+-- Uncomment the queries below to test your database.
 
+-- Option 1: View all records from a specific table
+-- SELECT * FROM category;
+-- SELECT * FROM subcategory;
+-- SELECT * FROM campaign;
+-- SELECT * FROM contacts;
+
+-- Option 2: Confirm the number of rows imported into each table
+-- SELECT COUNT(*) FROM category;
+-- SELECT COUNT(*) FROM subcategory;
+-- SELECT COUNT(*) FROM campaign;
+-- SELECT COUNT(*) FROM contacts;
+
+-- Option 3: Validate data integrity by checking relationships between tables
+-- SELECT c.category_name, s.subcategory_name
+-- FROM category c
+-- JOIN subcategory s ON c.category_id = s.category_id;
