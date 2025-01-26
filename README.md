@@ -200,11 +200,12 @@ Crowdfunding_ETL/
 4. Verify table contents with SQL queries. You can use one or more of the following approaches:
    - **Option 1**: Run `SELECT * FROM table_name;` for each table to view all records.
    - **Option 2**: Use `SELECT COUNT(*) FROM table_name;` to confirm the number of rows imported matches expectations.
-   - **Option 3**: Execute specific queries to validate data integrity, such as checking relationships between tables:
+   - **Option 3**: -- Option 3: Validate data integrity by checking relationships between tables
      ```sql
-     SELECT c.category, s.subcategory
+     SELECT c.category_name, sc.subcategory_name
      FROM category c
-     JOIN subcategory s ON c.category_id = s.category_id;
+     JOIN campaign ca ON c.category_id = ca.category_id
+     JOIN subcategory sc ON ca.subcategory_id = sc.subcategory_id;
      ```
 
 ---
