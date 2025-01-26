@@ -4,8 +4,8 @@
 
 ### **Team Members:**
 - **Sean Schallberger**
-- **Yadav Dhruvi**
 - **Bryan Carney**
+- **Yadav Dhruvi**
 
 ### **Project Timeline:**
 - **Start Date:** January 23, 2025
@@ -14,7 +14,7 @@
 ---
 
 ## **Overview**
-This project focuses on building an **ETL (Extract, Transform, Load)** pipeline using Python, Pandas, and PostgreSQL. By extracting and transforming data, we will generate **CSV files**, create an **Entity-Relationship Diagram (ERD)**, define a **table schema**, and upload data to a PostgreSQL database. This process demonstrates end-to-end ETL pipeline development and database integration.
+This project focuses on building an **ETL (Extract, Transform, Load)** pipeline using Python, Pandas, and PostgreSQL. By extracting and transforming data, we generated **CSV files**, created an **Entity-Relationship Diagram (ERD)**, defined a **table schema**, and uploaded data to a PostgreSQL database. This project demonstrates end-to-end ETL pipeline development and database integration.
 
 ---
 
@@ -28,41 +28,34 @@ This project focuses on building an **ETL (Extract, Transform, Load)** pipeline 
 
 ---
 
-## **Work Allocation**
+## **Highlights of Skills and Tools**
 
-### **Person A**
-1. Create the **Category and Subcategory DataFrames**:
-   - Extract data from `crowdfunding.xlsx`.
-   - Create `category.csv` and `subcategory.csv`.
-   - Ensure proper data formatting and validation.
+### **Programming Languages:**
+- Python
+- SQL
 
-2. **Database Integration**:
-   - Create the database schema.
-   - Define relationships, primary keys, and foreign keys.
+### **Libraries:**
+- Pandas
+- NumPy
+- Regular Expressions
 
----
+### **Tools:**
+- PostgreSQL
+- pgAdmin
+- Jupyter Notebook
 
-### **Person B**
-1. Create the **Campaign DataFrame**:
-   - Extract and transform campaign-related data.
-   - Format columns and ensure data consistency.
-   - Export as `campaign.csv`.
+### **ETL Processes:**
+- Data extraction, transformation, and loading
 
-2. **PostgreSQL Import**:
-   - Load `campaign.csv` and verify table data.
-   - Perform SQL queries to test data accuracy.
+### **Visualization:**
+- Entity-Relationship Diagram (ERD)
 
 ---
 
-### **Person C**
-1. Create the **Contacts DataFrame**:
-   - Extract and transform data from `contacts.xlsx`.
-   - Use dictionary methods or regular expressions for data extraction.
-   - Export as `contacts.csv`.
-
-2. **Database Testing**:
-   - Import `contacts.csv` into the database.
-   - Validate data using SQL queries and debug any issues.
+## **Key Learning Outcomes**
+- Hands-on experience in designing and implementing an ETL pipeline.
+- Proficiency in cleaning, transforming, and structuring raw data for database integration.
+- Practical application of PostgreSQL for relational database design and querying.
 
 ---
 
@@ -98,7 +91,7 @@ This project focuses on building an **ETL (Extract, Transform, Load)** pipeline 
   - `end_date` (datetime)
   - `category_id` (matches `category.csv`)
   - `subcategory_id` (matches `subcategory.csv`)
-- Exported as **`campaign.csv`**.
+- Exported as **`campaign.csv`**
 
 #### **Contacts DataFrame**
 - Columns:
@@ -108,19 +101,50 @@ This project focuses on building an **ETL (Extract, Transform, Load)** pipeline 
   - `email`
 - Exported as **`contacts.csv`**.
 
-### **2. Database Schema**
-- **Database Name:** `crowdfunding_db`
-- Tables:
-  - `category`
-  - `subcategory`
-  - `campaign`
-  - `contacts`
-- Relationships and constraints are defined with **primary keys** and **foreign keys**.
+---
 
-### **3. PostgreSQL Integration**
+### **2. Database Schema and Integration**
+- **Database Name:** `crowdfunding_db`
 - **Database Creation Script:** `crowdfunding_db_schema.sql`
-- Imported CSV data into corresponding tables.
-- Verified data insertion with `SELECT *` statements.
+  - This file includes the schema and table definitions for the following tables:
+    - `category`
+    - `subcategory`
+    - `campaign`
+    - `contacts`
+  - Relationships and constraints are defined with **primary keys** and **foreign keys**.
+- Steps:
+  - Imported CSV data into corresponding tables.
+  - Verified data insertion with `SELECT *` statements.
+
+---
+
+### **Entity-Relationship Diagram (ERD)**
+
+The following diagram illustrates the relationships between the tables in the database:
+
+![Entity-Relationship Diagram](crowdfunding_ERD.png)
+
+---
+
+## **Repository Folder Structure**
+```
+Crowdfunding_ETL/
+│
+├── ETL_Mini_Project_SSchallberger_BCarney_YDhruvi.ipynb   # Main project notebook
+├── crowdfunding_ERD.png                                   # Database ERD diagram
+├── crowdfunding_db_schema.sql                             # SQL schema file
+├── Resources/                                             # Input files and raw data
+│   ├── crowdfunding.xlsx                                  # Crowdfunding data source
+│   ├── contacts.xlsx                                      # Contacts data source
+│   ├── category.csv                                       # Transformed category data
+│   ├── subcategory.csv                                    # Transformed subcategory data
+│   ├── campaign.csv                                       # Transformed campaign data
+│   ├── contacts.csv                                       # Transformed contacts data
+├── Individual_Work/                                       # Individual contributions
+│   ├── Sean Schallberger/                                 # Contains Sean's individual work files
+│   ├── Bryan Carney/                                      # Contains Bryan's individual work files
+│   ├── Dhruvi Yadav/                                      # Contains Dhruvi's individual work files
+```
 
 ---
 
@@ -142,13 +166,47 @@ This project focuses on building an **ETL (Extract, Transform, Load)** pipeline 
 - Open and run `ETL_Mini_Project_SSchallberger_BCarney_YDhruvi.ipynb` in Jupyter Notebook.
 
 #### **Database Setup**
-1. Start PostgreSQL.
-2. Execute the schema script:
+1. The provided `crowdfunding_db_schema.sql` file has the database creation commands commented out at the top:
+   ```sql
+   -- DROP DATABASE IF EXISTS crowdfunding_db;
+   -- CREATE DATABASE crowdfunding_db;
+   -- \c crowdfunding_db;
+   ```
+   This means the database must either be created manually through **pgAdmin** or via the terminal before running the script. Follow these steps:
+   
+   **Option A: Create Database Manually in pgAdmin**
+   - Open pgAdmin and create a new database named `crowdfunding_db`.
+   - Right-click on the database and open the Query Tool.
+   - Run the schema file (`crowdfunding_db_schema.sql`) to create the necessary tables.
+
+   **Option B: Use Terminal Commands**
+   - Open your terminal and log into PostgreSQL:
+     ```bash
+     psql -U username
+     ```
+   - Create and connect to the database by running:
+     ```sql
+     CREATE DATABASE crowdfunding_db;
+     \c crowdfunding_db;
+     ```
+
+2. Once the database is created, execute the schema script:
    ```bash
    psql -U username -d crowdfunding_db -f crowdfunding_db_schema.sql
    ```
-3. Import CSV data into the database.
-4. Verify table contents with SQL queries.
+3. Import CSV data into the database in the following order with the specified settings:
+   - **Order**: `category.csv`, `subcategory.csv`, `contacts.csv`, `campaign.csv`
+   - **Settings**: Delimiter = `,`, Header = `True`
+4. Verify table contents with SQL queries. You can use one or more of the following approaches:
+   - **Option 1**: Run `SELECT * FROM table_name;` for each table to view all records.
+   - **Option 2**: Use `SELECT COUNT(*) FROM table_name;` to confirm the number of rows imported matches expectations.
+   - **Option 3**: -- Option 3: Validate data integrity by checking relationships between tables
+     ```sql
+     SELECT c.category, sc.subcategory
+     FROM category c
+     JOIN campaign ca ON c.category_id = ca.category_id
+     JOIN subcategory sc ON ca.subcategory_id = sc.subcategory_id;
+     ```
 
 ---
 
@@ -156,9 +214,9 @@ This project focuses on building an **ETL (Extract, Transform, Load)** pipeline 
 | Date       | Milestone                                   |
 |------------|--------------------------------------------|
 | Jan 23     | Project Kickoff                            |
-| Jan 24     | Person A: Category and Subcategory DataFrames |
-| Jan 25     | Person B: Campaign DataFrame               |
-| Jan 26     | Person C: Contacts DataFrame               |
-| Jan 27     | Person A: Database Schema and Integration  |
-| Jan 28     | Testing and Debugging (All Members)        |
-| Jan 29     | Final Documentation and Submission (All Members) |
+| Jan 24     | Category and Subcategory DataFrames        |
+| Jan 25     | Campaign DataFrame                         |
+| Jan 26     | Contacts DataFrame                         |
+| Jan 27     | Database Schema and Integration            |
+| Jan 28     | Testing and Debugging                      |
+| Jan 29     | Final Documentation and Submission         |
